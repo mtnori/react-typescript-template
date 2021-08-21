@@ -1,0 +1,8 @@
+{
+  // webpack.config.ts は CommonJS 形式にしか対応していないため専用の設定を定義
+  "compilerOptions": {
+    "target": "ES5", // TSはECMAScript 5に変換
+    "module": "CommonJS", // TSのモジュールはCommonJSとして出力定
+    "esModuleInterop": true
+  }
+}
