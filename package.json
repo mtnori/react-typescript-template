@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack",
-    "watch": "webpack -w"
+    "watch": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack -w",
+    "serve": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -14,13 +15,13 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/webpack": "^5.28.0",
-    "@types/webpack-dev-server": "^3.11.5",
+    "@types/webpack-dev-server": "^3.11.1",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "cross-env": "^7.0.3",

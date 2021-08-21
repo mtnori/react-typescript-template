@@ -17,7 +17,7 @@ export const SubComponent = (props: IProps, state: IState) => {
   return (
     <div>
       <h2>{props.name}</h2>
-      <div>{state.count}</div>
+      <div>{count}</div>
       <button onClick={handleClick}>Add + 1</button>
     </div>
   );
