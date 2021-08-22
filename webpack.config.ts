@@ -39,7 +39,11 @@ const config: Configuration = {
       '.ts', '.tsx', '.js', '.jsx'
     ],
     // 絶対パスで記述されたimportの解決
-    modules: [path.resolve(__dirname, "src"), "node_modules"]
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    // エイリアスの定義方法
+    alias: {
+      '@components': path.resolve(__dirname, "src", "components")
+    }
   },
   // ES5(IE11等)向けの指定（webpack 5以上で必要）
   target: ["web", "es5"],

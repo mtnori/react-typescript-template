@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
+    // エイリアス設定
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ]
+    },
     "outDir": "./dist/",
     "target": "ES5", // TSはECMAScript 5に変換
     "module": "ES2015", // TSのモジュールはES Modulesとして出力
