@@ -4,11 +4,7 @@ interface IProps {
   name: string;  
 }
 
-interface IState {
-  count: number;
-}
-
-export const SubComponent = (props: IProps, state: IState) => {
+export const SubComponent = (props: IProps) => {
   const [count, setCount] = React.useState(0);
   const handleClick = () => {
     console.log('クリックされました');

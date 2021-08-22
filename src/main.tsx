@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { SubComponent } from 'components/sub-component';
+import { SubComponent } from '@components/sub-component';
 
 const App = () => (
   <div>
