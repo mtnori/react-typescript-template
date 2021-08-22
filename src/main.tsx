@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { SubComponent } from '@components/sub-component';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { SubComponent } from "@components/sub-component";
 
 const App = () => (
   <div>
@@ -9,4 +9,4 @@ const App = () => (
   </div>
 );
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+ReactDOM.render(<App />, document.querySelector("#app"));

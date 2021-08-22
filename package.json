@@ -6,7 +6,9 @@
   "scripts": {
     "build": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack",
     "watch": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack -w",
-    "serve": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack serve"
+    "serve": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack serve",
+    "eslint": "eslint src",
+    "fmt": "prettier --write '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore && eslint ./src/"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,14 @@
     "@types/react-dom": "^17.0.9",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^3.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5",
