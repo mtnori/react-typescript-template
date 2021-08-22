@@ -1,14 +1,14 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface IProps {
-  name: string;  
+  name: string;
 }
 
-export const SubComponent = (props: IProps) => {
+export const SubComponent = (props: IProps): JSX.Element => {
   const [count, setCount] = React.useState(0);
   const handleClick = () => {
-    console.log('クリックされました');
-    setCount(count + 1)
+    console.log("クリックされました");
+    setCount(count + 1);
   };
   return (
     <div>
