@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Rx from 'typeless/rx';
-import { CounterActions, CounterState, useModule } from "./interface";
-import { Counter } from './components/Counter';
+import { CounterActions, CounterState, useModule } from "@features/counter/interface";
+import { Counter } from '@features/counter/components/Counter';
 
 useModule
   .epic()

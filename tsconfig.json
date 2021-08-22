@@ -6,6 +6,9 @@
     "paths": {
       "@components/*": [
         "components/*"
+      ],
+      "@features/*": [
+        "features/*"
       ]
     },
     "outDir": "./dist/",

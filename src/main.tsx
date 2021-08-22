@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { DefaultTypelessProvider } from 'typeless';
 import { SubComponent } from '@components/sub-component';
-import CounterModule from 'features/counter/module';
+import CounterModule from '@features/counter/module';
 
 const App = () => (
   <div>

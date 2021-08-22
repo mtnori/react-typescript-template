@@ -42,7 +42,8 @@ const config: Configuration = {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     // エイリアスの定義方法
     alias: {
-      '@components': path.resolve(__dirname, "src", "components")
+      '@components': path.resolve(__dirname, "src", "components"),
+      '@features': path.resolve(__dirname, "src", "features")
     }
   },
   // ES5(IE11等)向けの指定（webpack 5以上で必要）

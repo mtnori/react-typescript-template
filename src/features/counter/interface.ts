@@ -1,5 +1,5 @@
 import { createModule } from "typeless";
-import { CounterSymbol } from "./symbol";
+import { CounterSymbol } from "@features/counter/symbol";
 
 export const [useModule, CounterActions, getCounterState] = createModule(
   CounterSymbol

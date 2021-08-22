@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useActions } from 'typeless';
-import { CounterActions, getCounterState } from '../interface';
+import { CounterActions, getCounterState } from '@features/counter/interface';
 
 export function Counter() {
   const { startCount } = useActions(CounterActions);
