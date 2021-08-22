@@ -1,4 +1,4 @@
-import * as path from "path";
+import path from "path";
 import { Configuration as WebpackConfiguration } from "webpack";
 import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 
@@ -7,10 +7,12 @@ interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const config: Configuration = {
   // モード値を production に設定すると最適化された状態で、
   // development に設定するとソースマップ有効でJSファイルが出力される
-  mode: "development",
+  mode: isProduction ? "production" : "development",
   // メインとなるJavaScriptファイル（エントリーポイント）
   entry: "./src/main.tsx",
   // ファイルの出力設定
@@ -39,12 +41,17 @@ const config: Configuration = {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     // エイリアスの定義方法
     alias: {
+      "~": path.resolve(__dirname),
       "@components": path.resolve(__dirname, "src", "components"),
     },
   },
   // ES5(IE11等)向けの指定（webpack 5以上で必要）
   target: ["web", "es5"],
-  devtool: "inline-source-map",
+  ...(isProduction
+    ? {}
+    : {
+        devtool: "eval-source-map",
+      }),
   devServer: {
     contentBase: path.join(__dirname, "static"),
     open: true,

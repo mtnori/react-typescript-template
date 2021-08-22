@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack",
+    "build:prod": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" NODE_ENV=production webpack --config webpack.config.prod.ts",
     "watch": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack -w",
     "serve": "cross-env TS_NODE_PROJECT=\"./tsconfig-for-webpack.json\" webpack serve",
     "eslint": "eslint src",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
+    "@types/terser-webpack-plugin": "^5.0.4",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^3.11.1",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
@@ -26,12 +28,14 @@
     "eslint-plugin-react": "^7.24.0",
     "jest": "^27.0.6",
     "prettier": "^2.3.2",
+    "terser-webpack-plugin": "^5.1.4",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
