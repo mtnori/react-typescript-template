@@ -1,1 +1,1 @@
-export const CounterSymbol = Symbol('counter');
+export const CounterSymbol = Symbol("counter");
