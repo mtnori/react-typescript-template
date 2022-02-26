@@ -1,8 +1,8 @@
 import merge from "webpack-merge";
-import TerserPlugin, { TerserPluginOptions } from "terser-webpack-plugin";
+import TerserPlugin, { BasePluginOptions } from "terser-webpack-plugin";
 import commonConfig from "~/webpack.config";
 
-const terserOptions: TerserPluginOptions = {
+const terserOptions: BasePluginOptions = {
   parallel: false,
 };
 

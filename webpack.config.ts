@@ -53,7 +53,9 @@ const config: Configuration = {
         devtool: "eval-source-map",
       }),
   devServer: {
-    contentBase: path.join(__dirname, "static"),
+    static: {
+      directory: path.join(__dirname, "static"),
+    },
     open: true,
     port: 3000,
   },
