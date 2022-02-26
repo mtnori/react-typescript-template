@@ -1,11 +1,6 @@
 import path from "path";
-import { Configuration as WebpackConfiguration } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
-
-// https://github.com/DefinitelyTyped/DefinitelyTyped/issues/27570
-interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
-}
+/// <reference path = "node_modules / webpack-dev-server / types / lib / Server.d.ts" />
+import type { Configuration } from "webpack";
 
 const isProduction = process.env.NODE_ENV === "production";
 
