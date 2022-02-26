@@ -4,7 +4,7 @@
     "baseUrl": "./",
     // エイリアス設定
     "paths": {
-      "~/*": ["*"],
+      "@images/*": ["src/images/*"],
       "@components/*": ["src/components/*"]
     },
     "outDir": "./dist/",

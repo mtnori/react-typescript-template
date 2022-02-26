@@ -1,4 +1,5 @@
 import React from "react";
+import "@components/style.scss";
 
 interface IProps {
   name: string;

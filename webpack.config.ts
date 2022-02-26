@@ -1,6 +1,10 @@
 import path from "path";
-/// <reference path = "node_modules / webpack-dev-server / types / lib / Server.d.ts" />
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
 import type { Configuration } from "webpack";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const devServer: DevServerConfiguration = {};
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -18,6 +22,8 @@ const config: Configuration = {
     filename: "bundle.js",
     // バンドルファイルをアップロードする場所
     publicPath: "/assets",
+    // 画像ファイルの出力先
+    assetModuleFilename: "images/[hash][ext][query]",
   },
   module: {
     rules: [
@@ -26,6 +32,45 @@ const config: Configuration = {
         test: /\.tsx?$/,
         // TypeScript をコンパイルする
         use: "ts-loader",
+      },
+      {
+        test: /(\.css|\.scss)/,
+        use: [
+          // "style-loader",
+          // CSSを書き出すオプションを有効にする
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: {
+              // オプションでCSS内のurl()メソッドの取り込みを禁止する
+              url: true,
+              sourceMap: !isProduction,
+              // 0 => no loaders (default);
+              // 1 => postcss-loader;
+              // 2 => postcss-loader, sass-loader
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: !isProduction,
+            },
+          },
+        ],
+      },
+      {
+        test: /.(png|jpe?g|gif|svg)$/i,
+        // 閾値以上だったら埋め込まずファイルとして分離する
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            // 100KB以上だったら埋め込まずファイルとして分離する
+            maxSize: 100 * 1024,
+          },
+        },
       },
     ],
   },
@@ -36,10 +81,16 @@ const config: Configuration = {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     // エイリアスの定義方法
     alias: {
-      "~": path.resolve(__dirname),
+      "@images": path.resolve(__dirname, "src", "images"),
       "@components": path.resolve(__dirname, "src", "components"),
     },
   },
+  plugins: [
+    // CSSを外だしにするプラグイン
+    new MiniCssExtractPlugin({
+      filename: "style.css",
+    }),
+  ],
   // ES5(IE11等)向けの指定（webpack 5以上で必要）
   target: ["web", "es5"],
   ...(isProduction
